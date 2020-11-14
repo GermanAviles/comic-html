@@ -1,0 +1,133 @@
+.rating-box {
+  display: inline-block;
+  height: fit-content;
+}
+.rating-box .rating-container {
+  direction: rtl !important;
+}
+.rating-box .rating-container label {
+  display: inline-block;
+  margin: 15px 0;
+  color: #d4d4d4;
+  cursor: pointer;
+  font-size: 50px;
+  transition: color 0.2s;
+}
+.rating-box .rating-container input {
+  display: none;
+}
+.rating-box .rating-container label:hover, .rating-box .rating-container label:hover ~ label, .rating-box .rating-container input:checked ~ label {
+  color: gold;
+}
+
+body {
+  margin: 0;
+}
+
+.cont-comic {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-comic {
+  max-height: 90vh;
+  max-width: 60vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  padding: 14px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  -webkit-box-shadow: 6px 6px 18px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 6px 6px 18px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: 6px 6px 18px -8px rgba(0, 0, 0, 0.75);
+}
+.card-comic .cont-img-comic {
+  width: 100%;
+  height: 100%;
+}
+.card-comic .cont-img-comic img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.card-comic .cont-info-comic {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+  padding: 0 13px;
+}
+.card-comic .cont-info-comic .cont-title {
+  text-align: center;
+  height: fit-content;
+}
+.card-comic .cont-info-comic .descripcion-comic {
+  padding: 0 15px;
+}
+.card-comic .cont-info-comic .cont-comentario {
+  padding: 0 16px;
+  width: 100%;
+}
+.card-comic .cont-info-comic .cont-comentario textarea {
+  width: 100%;
+  height: 15vh;
+  padding: 5px 10px;
+}
+.card-comic .cont-info-comic .cont-botones {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 2vh;
+}
+.card-comic .cont-info-comic .cont-botones a {
+  text-decoration: none;
+  margin-right: 10px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.btn {
+  width: auto;
+  height: 40px;
+  font-weight: bold;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  box-shadow: 2px 3px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+  transition: all 200ms ease-in-out;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #e04141ed;
+}
+
+.btn-succes {
+  color: #fff;
+  background-color: #39a50ced;
+}
+
+.btn-danger:hover {
+  background-color: #921c1ced;
+}
+
+.btn-succes:hover {
+  background-color: #30921ced;
+}
+
+/*# sourceMappingURL=estilos.css.map */

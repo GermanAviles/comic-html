@@ -1,0 +1,21 @@
+.rating-box {
+    display: inline-block;
+    height: fit-content;
+    .rating-container {
+      direction: rtl !important;
+      label {
+        display: inline-block;
+        margin: 15px 0;
+        color: #d4d4d4;
+        cursor: pointer;
+        font-size: 50px;
+        transition: color 0.2s;
+      }
+      input {
+        display: none;
+      }
+      label:hover, label:hover ~ label, input:checked ~ label  {
+        color: gold;
+      }
+    }
+  }
