@@ -1,4 +1,4 @@
-const baseURL = 'https://xkcd.com/'
+const baseURL = 'http://localhost:3000/'
 const headers = { 'Content-Type': 'application/json' }
 
 var firebaseConfig = {
@@ -15,16 +15,31 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-const getRandomComic = async () => {
-  try {
-    const number = Math.floor(Math.random() * 1000)
-    const res = await fetch(`${baseURL}${number}/info.0.json`, { method: 'GET', headers: headers })
-    console.log('RESPUESTA: ', res)
-  } catch (e) {
-    console.error(e)
-  }
+const calcularPosicionIcono = () => {
+  const padre = document.getElementById('cont-info-comic')
+  const icono = document.getElementById('icono-refresh')
+  icono.style.top = `${ (window.innerHeight - padre.offsetHeight)/2 + 10 }px`
+
 }
+
+const getRandomComic = () => {
+  const number = Math.floor(Math.random() * 1000)
+  fetch(`${baseURL}comic/${number}`, { method: 'GET', headers: headers }).then((response) => response.json())
+    .then((comic) => {
+      const imagenComic = document.getElementById('comic-image')
+      const tituloComic = document.getElementById('titulo-comic')
+      const descripcionComic = document.getElementById('descripcion-comic')
+
+      tituloComic.innerHTML = comic.data.title
+      imagenComic.setAttribute('src', comic.data.img)
+      descripcionComic.innerHTML = comic.data.transcript
+      calcularPosicionIcono()
+    });
+}
+
 
 window.onload = () => {
   getRandomComic()
+  const refresh = document.getElementById('icono-refresh')
+  refresh.addEventListener('click', getRandomComic, false)
 }
