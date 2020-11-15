@@ -19,7 +19,13 @@ const calcularPosicionIcono = () => {
   const padre = document.getElementById('cont-info-comic')
   const icono = document.getElementById('icono-refresh')
   icono.style.top = `${ (window.innerHeight - padre.offsetHeight)/2 + 10 }px`
+}
 
+const reiniciarValores = () => {
+  document.getElementById('comentario-comic').value = ''
+  for( let i = 1; i <= 5; i++ ) {
+    document.getElementById(`star-${i}`).checked = false
+  }
 }
 
 const getRandomComic = () => {
@@ -41,5 +47,8 @@ const getRandomComic = () => {
 window.onload = () => {
   getRandomComic()
   const refresh = document.getElementById('icono-refresh')
-  refresh.addEventListener('click', getRandomComic, false)
+  refresh.addEventListener('click', () => {
+    getRandomComic()
+    reiniciarValores()
+  }, false)
 }
